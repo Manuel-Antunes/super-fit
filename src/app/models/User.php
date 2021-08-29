@@ -1,9 +1,4 @@
 <?php
-
-namespace Models;
-
-use DateTime;
-
 class User
 {
   private Int $id;

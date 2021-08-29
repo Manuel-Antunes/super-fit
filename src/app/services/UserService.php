@@ -1,12 +1,5 @@
 <?php
 
-namespace Services;
-
-use DateTime;
-use Exception;
-use Models\User;
-use Repositories\UserRepository;
-
 class UserService
 {
   private UserRepository $userRepository;

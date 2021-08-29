@@ -1,18 +1,18 @@
 <?php
-?>
-<!DOCTYPE html>
-<html lang="en">
+session_start();
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template PHP Gitpod</title>
-</head>
+if (isset($_GET["view"])) {
+  require_once "src/app/views/" . $_GET["view"] . ".php";
+} else if (isset($_GET["action"]) && isset($_GET["class"])) {
+  $controller = $_GET["class"] . "Controller";
+  $action = $_GET["action"];
 
-<body>
-  <h1>HELLO WORLD!</h1>
-  <h2>BORA CODAR!</h2>
-</body>
+  require_once "src/app/controllers/" . $controller . ".php";
 
-</html>
+  $controller = new $controller();
+  $controller->$action();
+} else if (isset($_SESSION["loggedUser"])) {
+  require_once "src/app/views/home.php";
+} else {
+  require_once "src/app/views/login.php";
+}
