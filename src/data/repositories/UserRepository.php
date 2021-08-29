@@ -2,6 +2,7 @@
 
 namespace Repositories;
 
+use DateTime;
 use PDO;
 
 class UserRepository extends Repository
@@ -13,13 +14,21 @@ class UserRepository extends Repository
     return $fetchAll;
   }
 
-  public function store(String $username, String $password, String $fullname, String $email)
-  {
-    $stmt = $this->conn->prepare('INSERT INTO users (username, password, fullname, email) VALUES (:username, :password, :fullname, :email)');
+  public function store(
+    String $username,
+    String $password,
+    String $fullname,
+    String $email,
+    float $wheight,
+    DateTime $birthDate
+  ) {
+    $stmt = $this->conn->prepare('INSERT INTO users (username, password, fullname, email, wheight,birthDate) VALUES (:username, :password, :fullname, :email, :wheight,:birthDate)');
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":fullname", $fullname);
+    $stmt->bindParam(":wheight", $wheight);
+    $stmt->bindParam(":birthDate", $birthDate);
     $stmt->execute();
   }
 
