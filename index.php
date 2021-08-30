@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (isset($_GET["view"])) {
   require_once "src/app/views/" . $_GET["view"] . ".php";
 } else if (isset($_GET["action"]) && isset($_GET["class"])) {
