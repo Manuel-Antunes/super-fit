@@ -47,7 +47,7 @@ class ExerciceCreationModal
             </div>
             <div class="input-field w-100">
               <textarea id="description" name="description" class="materialize-textarea"></textarea>
-              <label for="description">Textarea</label>
+              <label for="description">Description</label>
             </div>
             <div id="exercice-media">
               <div class="file-input">

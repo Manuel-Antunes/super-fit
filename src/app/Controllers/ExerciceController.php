@@ -11,7 +11,7 @@ class ExerciceController
   function __construct()
   {
     try {
-      $this->userService = new ExerciceService(new ExerciceRepository(Connection::getConnection()));
+      $this->exerciceService = new ExerciceService(new ExerciceRepository(Connection::getConnection()));
     } catch (Exception $e) {
       var_dump($e->getMessage());
     }
@@ -25,9 +25,15 @@ class ExerciceController
       echo "deu ruim";
       require_once "src/app/views/home.php";
     } else {
-      $result = $this->userService->createUser($name, $password, $email, $wheight,  $birthDate, $physics);
+      $result = $this->exerciceService->createExercice($name, $description);
       if (!is_bool($result)) {
-        require_once "src/app/Views/manage-exercices.php";
+        $exercices = $this->exerciceService->listExercices();
+        if (!is_bool($exercices)) {
+          $_REQUEST["exercices"] = $exercices;
+          require_once "src/app/Views/manage-exercices.php";
+        } else {
+          require_once "src/app/Views/home.php";
+        }
       } else {
         require_once "src/app/Views/home.php";
       }

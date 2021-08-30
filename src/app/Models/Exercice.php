@@ -1,16 +1,18 @@
-<?
+<?php
 
 namespace App\Models;
 
 class Exercice
 {
-  public String $name;
-  public String $description;
+  private String $name;
+  private String $description;
+  private Int $id;
 
-  function __construct(String $name, String $description)
+  function __construct(String $name, String $description, Int $id)
   {
     $this->name = $name;
     $this->description = $description;
+    $this->id = $id;
   }
 
   /**
@@ -58,6 +60,25 @@ class Exercice
   {
     $this->description = $description;
 
+    return $this;
+  }
+
+  /**
+   * Get the value of id
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * Set the value of id
+   *
+   * @return  self
+   */
+  public function setId($id)
+  {
+    $this->id = $id;
     return $this;
   }
 }

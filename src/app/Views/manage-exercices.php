@@ -15,8 +15,12 @@ $exercices = $_REQUEST['exercices'];
   <div class="main-container">
     <?php foreach ($exercices as $e) : ?>
       <a class="waves-effect waves-light btn-large">
-        <?= $e->getName() ?>
-        <?= $e->getDescription() ?>
+        <span>
+          <?= $e->getName() ?>
+        </span>
+        <p>
+          <?= $e->getDescription() ?>
+        </p>
       </a>
     <?php endforeach; ?>
   </div>

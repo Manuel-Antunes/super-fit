@@ -39,7 +39,7 @@ class ExerciceService
   private function mapToExercice($array)
   {
     return array_map(function ($e) {
-      return new Exercice($e['name'], $e['description']);
+      return new Exercice($e['name'], $e['description'], $e['id']);
     }, $array);
   }
 }
