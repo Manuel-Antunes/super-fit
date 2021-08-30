@@ -11,6 +11,7 @@ class ExerciceCreationModal
         border-radius: 10px;
         background-color: #7159c1;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
@@ -28,7 +29,9 @@ class ExerciceCreationModal
         position: absolute;
       }
 
-      #exercice-media {}
+      #exercice-media {
+        margin-bottom: 20px;
+      }
     </style>
     <div id="exercice-creation-modal" class="modal">
       <div class="p-5">
@@ -47,6 +50,7 @@ class ExerciceCreationModal
               <div class="file-input">
                 <input type="file" id="files" name="files" multiple>
                 <i class="material-icons">add</i>
+                <p>inserir mídia</p>
               </div>
             </div>
             <div class="d-flex justify-content-between">
