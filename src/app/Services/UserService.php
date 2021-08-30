@@ -32,10 +32,11 @@ class UserService
     String $email,
     float $wheight,
     String $birthDate,
-    String $physics
+    String $physics,
+    String $gender
   ) {
     try {
-      $this->userRepository->store($name, password_hash($password, PASSWORD_DEFAULT), $email, $wheight, $birthDate, $physics);
+      $this->userRepository->store($name, password_hash($password, PASSWORD_DEFAULT), $email, $wheight, $birthDate, $physics, $gender);
     } catch (Exception $e) {
       echo '<div class="error-message">' . $e->getMessage() . '</div>';
       return false;
@@ -63,7 +64,7 @@ class UserService
       if (!password_verify($password, $fetch['password'])) {
         throw new Exception("Invalid password");
       }
-      $user = new User($fetch['id'], $fetch['email'], $fetch['name'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics']);
+      $user = new User($fetch['id'], $fetch['email'], $fetch['name'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics'], $fetch["gender"]);
       return $user;
     } catch (Exception $e) {
       echo `<div class="error-message">` . $e->getMessage() . `</div>`;
@@ -74,7 +75,7 @@ class UserService
   private function mapToUsers($array)
   {
     return array_map(function ($e) {
-      return new User($e['id'], $e['email'], $e['name'], $e['fullname'], $e['wheight'], $e['birthDate'], $e['physics']);
+      return new User($e['id'], $e['email'], $e['name'], $e['fullname'], $e['wheight'], $e['birthDate'], $e['physics'], $e["gender"]);
     }, $array);
   }
 }

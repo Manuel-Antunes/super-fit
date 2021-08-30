@@ -25,13 +25,14 @@ class UserController
     $wheight = $_POST["wheight"];
     $birthDate = $_POST["birthDate"];
     $physics = $_POST["physics"];
-    if (!isset($name) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics)) {
+    $gender = $_POST["gender"];
+    if (!isset($name) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics) || !isset($gender)) {
       echo "deu ruim";
       require_once "src/app/views/signup.php";
     } else {
       // $result = $birthDate;
       // echo $result;
-      $result = $this->userService->createUser($name, $password, $email, $wheight,  $birthDate, $physics);
+      $result = $this->userService->createUser($name, $password, $email, $wheight,  $birthDate, $physics, $gender);
       if (!is_bool($result)) {
         require_once "src/app/Views/login.php";
       } else {

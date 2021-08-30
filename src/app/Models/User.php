@@ -10,8 +10,9 @@ class User
   private float $wheight;
   private String $birthDate;
   private String $physics;
+  private String $gender;
 
-  function __construct(Int $id, String $email, String $name, float $wheight, String $birthDate, String $physics)
+  function __construct(Int $id, String $email, String $name, float $wheight, String $birthDate, String $physics, String $gender)
   {
     $this->id = $id;
     $this->email = $email;
@@ -19,6 +20,7 @@ class User
     $this->birthDate = $birthDate;
     $this->wheight = $wheight;
     $this->physics = $physics;
+    $this->gender = $gender;
   }
 
   /**

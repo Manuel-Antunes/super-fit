@@ -19,15 +19,17 @@ class UserRepository extends Repository
     String $email,
     float $wheight,
     String $birthDate,
-    String $physics
+    String $physics,
+    String $gender
   ) {
-    $stmt = $this->conn->prepare('INSERT INTO users (name, password, email, wheight, birthDate, physics) VALUES (:name, :password, :email, :wheight,:birthDate, :physics)');
+    $stmt = $this->conn->prepare('INSERT INTO users (name, password, email, wheight, birthDate, physics, gender) VALUES (:name, :password, :email, :wheight,:birthDate, :physics, :gender)');
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":name", $name);
     $stmt->bindParam(":wheight", $wheight);
     $stmt->bindParam(":birthDate", $birthDate);
     $stmt->bindParam(":physics", $physics);
+    $stmt->bindParam(":gender", $gender);
     $stmt->execute();
   }
 
