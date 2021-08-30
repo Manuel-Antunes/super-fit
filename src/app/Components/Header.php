@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Components;
+
 class Header
 {
   public static function show()

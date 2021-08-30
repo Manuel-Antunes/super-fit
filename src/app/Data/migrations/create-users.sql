@@ -1,0 +1,10 @@
+CREATE TABLE users(
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    fullname VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    birthDate DATETIME NOT NULL,
+    wheight FLOAT NOT NULL,
+    physics VARCHAR(255) NOT NULL
+)

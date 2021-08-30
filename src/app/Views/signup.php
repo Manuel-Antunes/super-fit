@@ -1,5 +1,7 @@
 <?php
-require_once "src/app/components/layouts/default.php";
+namespace App\Views;
+use App\Components\Layouts\DefaultLayout;
+
 ?>
 <?= DefaultLayout::start("cadastro", "public/css/auth.css") ?>
 <div class="py-5 px-3">

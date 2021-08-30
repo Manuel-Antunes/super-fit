@@ -1,10 +1,9 @@
 <?php
 
-namespace Repositories;
+namespace App\Repositories;
 
 use DateTime;
 use PDO;
-
 class UserRepository extends Repository
 {
   public function index()
@@ -20,15 +19,17 @@ class UserRepository extends Repository
     String $fullname,
     String $email,
     float $wheight,
-    DateTime $birthDate
+    DateTime $birthDate,
+    String $physics
   ) {
-    $stmt = $this->conn->prepare('INSERT INTO users (username, password, fullname, email, wheight,birthDate) VALUES (:username, :password, :fullname, :email, :wheight,:birthDate)');
+    $stmt = $this->conn->prepare('INSERT INTO users (username, password, fullname, email, wheight, birthDate, physics) VALUES (:username, :password, :fullname, :email, :wheight,:birthDate, :physics)');
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":fullname", $fullname);
     $stmt->bindParam(":wheight", $wheight);
     $stmt->bindParam(":birthDate", $birthDate);
+    $stmt->bindParam(":physics", $physics);
     $stmt->execute();
   }
 

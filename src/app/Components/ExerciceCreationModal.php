@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Components;
+
 class ExerciceCreationModal
 {
   public static function show()

@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Components\Layouts;
+
 class DefaultLayout
 {
   public static function start(String $title, ...$styles)

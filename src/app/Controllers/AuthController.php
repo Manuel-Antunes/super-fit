@@ -1,11 +1,12 @@
 <?php
 
-use Repositories\UserRepository;
-use Services\UserService;
+use App\Services\UserService as ServicesUserService;
+use App\Repositories\UserRepository;
+use App\Services\UserService;
 
 class AuthController
 {
-  private UserService $userService;
+  private ServicesUserService $userService;
 
   function __construct()
   {
@@ -31,5 +32,11 @@ class AuthController
         require_once "app/views/login/index.php";
       }
     }
+  }
+
+  public function destroy()
+  {
+    session_destroy();
+    header("Location: ?view=login");
   }
 }

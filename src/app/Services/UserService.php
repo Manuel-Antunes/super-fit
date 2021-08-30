@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Services;
+
+use App\Repositories\UserRepository;
+use App\Models\User;
+use DateTime;
+use Exception;
+
 class UserService
 {
   private UserRepository $userRepository;
@@ -26,10 +33,11 @@ class UserService
     String $fullname,
     String $email,
     float $wheight,
-    DateTime $birthDate
+    DateTime $birthDate,
+    String $physics
   ) {
     try {
-      $this->userRepository->store($username, password_hash($password, PASSWORD_DEFAULT), $fullname, $email, $wheight, $birthDate);
+      $this->userRepository->store($username, password_hash($password, PASSWORD_DEFAULT), $fullname, $email, $wheight, $birthDate, $physics);
     } catch (Exception $e) {
       echo '<div class="error-message">' . $e->getMessage() . '</div>';
       return false;

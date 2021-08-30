@@ -1,7 +1,9 @@
 <?php
-require_once "src/app/components/header.php";
-require_once "src/app/components/footer.php";
-require_once "src/app/components/layouts/default.php";
+namespace App\Views;
+
+use App\Components\Footer;
+use App\Components\Header;
+use App\Components\Layouts\DefaultLayout;
 ?>
 <?= DefaultLayout::start("gerenciar treinos", "public/css/home.css") ?>
 <?= Header::show() ?>

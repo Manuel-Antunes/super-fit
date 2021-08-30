@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Models;
+
 class User
 {
   private Int $id;
@@ -6,10 +9,10 @@ class User
   private String $fullname;
   private String $username;
   private float $wheight;
-  private DateTime $birthDate;
+  private \DateTime $birthDate;
   private String $physics;
 
-  function __construct(Int $id, String $email, String $username, String $fullname, float $wheight, DateTime $birthDate, String $physics)
+  function __construct(Int $id, String $email, String $username, String $fullname, float $wheight, \DateTime $birthDate, String $physics)
   {
     $this->id = $id;
     $this->email = $email;

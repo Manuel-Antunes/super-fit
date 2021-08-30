@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Components;
+
 class Footer
 {
   public static function show()
