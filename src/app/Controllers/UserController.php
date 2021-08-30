@@ -1,9 +1,10 @@
 <?php
 
-use App\Repositories\UserRepository;
+use App\Data\Connection;
+use App\Data\Repositories\UserRepository;
 use App\Services\UserService;
 
-class UserResolver
+class UserController
 {
   private UserService $userService;
 
@@ -26,13 +27,16 @@ class UserResolver
     $birthDate = $_POST["birthDate"];
     $physics = $_POST["physics"];
     if (!isset($username) || !isset($fullname) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics)) {
-      require_once "app/views/signup/index.php";
+      echo "deu ruim";
+      require_once "app/views/signup.php";
     } else {
-      $result = $this->userService->createUser($username, $password, $fullname, $email, $wheight, $birthDate, $physics);
+      $result = $username;
+      echo $result;
+      // $result = $this->userService->createUser($username, $password, $fullname, $email, $wheight, $birthDate, $physics);
       if (!is_bool($result)) {
-        require_once "app/views/login/index.php";
+        require_once "app/views/login.php";
       } else {
-        require_once "app/views/signup/index.php";
+        require_once "app/views/signup.php";
       }
     }
   }

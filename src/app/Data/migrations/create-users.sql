@@ -6,5 +6,6 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL,
     birthDate DATETIME NOT NULL,
     wheight FLOAT NOT NULL,
+    gender VARCHAR(255) NOT NULL,
     physics VARCHAR(255) NOT NULL
 )

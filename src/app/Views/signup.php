@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Views;
+
 use App\Components\Layouts\DefaultLayout;
 
 ?>
-<?= DefaultLayout::start("cadastro", "public/css/auth.css") ?>
+<?= DefaultLayout::start("Cadastro", "public/css/auth.css") ?>
 <div class="py-5 px-3">
   <div class="main-container d-flex">
     <div class="d-flex col w-100 purple darken-4 justify-content-center logo-wrapper">
@@ -11,64 +13,64 @@ use App\Components\Layouts\DefaultLayout;
     </div>
     <div class="col w-100 p-5 align-self-center">
       <h1 class="display-3">Cadastro</h1>
-      <form class="row g-3">
+      <form class="row g-3" method="POST" action="?class=User&action=store">
         <div class="input-field w-100">
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="validate" id="inputEmail4">
+          <label for="email">Email</label>
+          <input type="email" required name="email" class="validate" id="email">
         </div>
         <div class="input-field w-100">
-          <label for="inputPassword4">Senha</label>
-          <input type="password" class="validate" id="inputPassword4">
+          <label for="password">Senha</label>
+          <input type="password" required name="password" class="validate" id="password">
         </div>
         <div class="input-field w-100">
-          <label for="inputConfirmPassword">Confirmar Senha</label>
-          <input type="password" class="validate" id="inputConfirmPassword">
+          <label for="confirm-password">Confirmar Senha</label>
+          <input type="password" required class="confirmPassword" class="validate" id="confirm-password">
         </div>
         <div class="input-field col-12 w-100">
-          <label for="inputName">Nome</label>
-          <input type="text" id="inputName">
+          <label for="name">Nome</label>
+          <input type="text" required name="name" id="name">
         </div>
         <div class="col-12 w-100">
-          <label for="inputBirthDate">Data de nascimento</label>
-          <input type="date" class="validate" id="inputBirthDate">
+          <label for="brith-date">Data de nascimento</label>
+          <input type="date" required name="bitrhDate" class="validate" id="brith-date">
         </div>
         <div class="col-12">
           <label for="inputZip">Gênero</label>
           <p>
-            <input class="with-gap" name="gender" type="radio" id="m" />
+            <input class="with-gap" required name="gender" type="radio" id="m" />
             <label for="m">Masculino</label>
           </p>
           <p>
-            <input class="with-gap" name="gender" type="radio" id="f" />
+            <input class="with-gap" required name="gender" type="radio" id="f" />
             <label for="f">Feminino</label>
           </p>
           <p>
-            <input class="with-gap" name="gender" type="radio" id="other" />
+            <input class="with-gap" required name="gender" type="radio" id="other" />
             <label for="other">Outro</label>
           </p>
         </div>
         <div class="col-12">
           <label for="inputZip">Tipo físico</label>
           <p>
-            <input class="with-gap" name="physics" type="radio" id="ectomorph" />
+            <input class="with-gap" required name="physics" type="radio" id="ectomorph" />
             <label for="ectomorph">Endomorfo</label>
           </p>
           <p>
-            <input class="with-gap" name="physics" type="radio" id="mesomorph" />
+            <input class="with-gap" required name="physics" type="radio" id="mesomorph" />
             <label for="mesomorph">Mesomorfo</label>
           </p>
           <p>
-            <input class="with-gap" name="physics" type="radio" id="endomorph" />
+            <input class="with-gap" required name="physics" type="radio" id="endomorph" />
             <label for="endomorph">Ectomorfo</label>
           </p>
         </div>
         <div class="input-field col w-50">
-          <label for="inputHeight">Altura</label>
-          <input type="number" class="validate" id="inputHeight">
+          <label for="heigth">Altura</label>
+          <input type="number" required step="0.01" name="heigth" id="heigth">
         </div>
         <div class="input-field col w-50">
-          <label for="inputWheight">Peso</label>
-          <input type="number" class="validate" id="inputWheight">
+          <label for="wheight">Peso</label>
+          <input type="number" required step="0.01" name="wheight" id="wheight">
         </div>
         <p class="lead">Já faz parte da nossa família ? <a href="?view=login">faça o login</a>, e vamos
           voltar ao trabalho!</p>

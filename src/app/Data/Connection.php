@@ -1,4 +1,5 @@
 <?php
+namespace App\Data;
 class Connection
 {
   public static function getConnection()
@@ -6,6 +7,6 @@ class Connection
     $database = "atividade";
     $username = "root";
     $senha = "";
-    return new PDO("mysql:host=127.0.0.1;dbname=$database", $username, $senha);
+    return new \PDO("mysql:host=127.0.0.1;dbname=$database", $username, $senha);
   }
 }
