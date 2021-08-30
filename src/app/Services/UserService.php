@@ -36,6 +36,7 @@ class UserService
     String $physics
   ) {
     try {
+      echo "ajsdoasd";
       $this->userRepository->store($name, password_hash($password, PASSWORD_DEFAULT), $email, $wheight, $birthDate, $physics);
     } catch (Exception $e) {
       echo '<div class="error-message">' . $e->getMessage() . '</div>';

@@ -32,7 +32,7 @@ use App\Components\Layouts\DefaultLayout;
         </div>
         <div class="col-12 w-100">
           <label for="brith-date">Data de nascimento</label>
-          <input type="date" required name="bitrhDate" class="validate" id="brith-date">
+          <input type="date" required name="birthDate" class="validate" id="brith-date">
         </div>
         <div class="col-12">
           <label for="inputZip">Gênero</label>

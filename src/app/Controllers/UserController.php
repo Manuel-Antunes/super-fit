@@ -27,15 +27,13 @@ class UserController
     $physics = $_POST["physics"];
     if (!isset($name) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics)) {
       echo "deu ruim";
-      require_once "app/views/signup.php";
+      require_once "src/app/views/signup.php";
     } else {
-      $result = $name;
-      echo $result;
       $result = $this->userService->createUser($name, $password, $email, $wheight, $birthDate, $physics);
       if (!is_bool($result)) {
-        require_once "app/views/login.php";
+        require_once "src/app/Views/login.php";
       } else {
-        require_once "app/views/signup.php";
+        require_once "src/app/Views/signup.php";
       }
     }
   }
