@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\UserRepository;
+use App\Data\Repositories\UserRepository;
 use App\Models\User;
 use DateTime;
 use Exception;
@@ -28,16 +28,15 @@ class UserService
     }
   }
   public function createUser(
-    String $username,
+    String $name,
     String $password,
-    String $fullname,
     String $email,
     float $wheight,
     DateTime $birthDate,
     String $physics
   ) {
     try {
-      $this->userRepository->store($username, password_hash($password, PASSWORD_DEFAULT), $fullname, $email, $wheight, $birthDate, $physics);
+      $this->userRepository->store($name, password_hash($password, PASSWORD_DEFAULT), $email, $wheight, $birthDate, $physics);
     } catch (Exception $e) {
       echo '<div class="error-message">' . $e->getMessage() . '</div>';
       return false;
@@ -65,7 +64,7 @@ class UserService
       if (!password_verify($password, $fetch['password'])) {
         throw new Exception("Invalid password");
       }
-      $user = new User($fetch['id'], $fetch['email'], $fetch['username'], $fetch['fullname'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics']);
+      $user = new User($fetch['id'], $fetch['email'], $fetch['name'], $fetch['fullname'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics']);
       return $user;
     } catch (Exception $e) {
       echo `<div class="error-message">` . $e->getMessage() . `</div>`;
@@ -76,7 +75,7 @@ class UserService
   private function mapToUsers($array)
   {
     return array_map(function ($e) {
-      return new User($e['id'], $e['email'], $e['username'], $e['fullname'], $e['wheight'], $e['birthDate'], $e['physics']);
+      return new User($e['id'], $e['email'], $e['name'], $e['fullname'], $e['wheight'], $e['birthDate'], $e['physics']);
     }, $array);
   }
 }

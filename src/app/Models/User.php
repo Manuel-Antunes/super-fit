@@ -6,45 +6,19 @@ class User
 {
   private Int $id;
   private String $email;
-  private String $fullname;
-  private String $username;
+  private String $name;
   private float $wheight;
   private \DateTime $birthDate;
   private String $physics;
 
-  function __construct(Int $id, String $email, String $username, String $fullname, float $wheight, \DateTime $birthDate, String $physics)
+  function __construct(Int $id, String $email, String $name, float $wheight, \DateTime $birthDate, String $physics)
   {
     $this->id = $id;
     $this->email = $email;
-    $this->username = $username;
-    $this->fullname = $fullname;
+    $this->name = $name;
     $this->birthDate = $birthDate;
     $this->wheight = $wheight;
     $this->physics = $physics;
-  }
-
-  /**
-   * Get the value of fullname
-   *
-   * @return  String
-   */
-  public function getFullname()
-  {
-    return $this->fullname;
-  }
-
-  /**
-   * Set the value of fullname
-   *
-   * @param  String  $fullname
-   *
-   * @return  self
-   */
-  public function setFullname(String $fullname)
-  {
-    $this->fullname = $fullname;
-
-    return $this;
   }
 
   /**
@@ -72,25 +46,25 @@ class User
   }
 
   /**
-   * Get the value of username
+   * Get the value of name
    *
    * @return  String
    */
-  public function getUsername()
+  public function getname()
   {
-    return $this->username;
+    return $this->name;
   }
 
   /**
-   * Set the value of username
+   * Set the value of name
    *
-   * @param  String  $username
+   * @param  String  $name
    *
    * @return  self
    */
-  public function setUsername(String $username)
+  public function setname(String $name)
   {
-    $this->username = $username;
+    $this->name = $name;
 
     return $this;
   }

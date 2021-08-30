@@ -4,6 +4,7 @@ namespace App\Data\Repositories;
 
 use DateTime;
 use PDO;
+
 class UserRepository extends Repository
 {
   public function index()
@@ -14,18 +15,17 @@ class UserRepository extends Repository
   }
 
   public function store(
-    String $username,
+    String $name,
     String $password,
-    String $fullname,
     String $email,
     float $wheight,
     DateTime $birthDate,
     String $physics
   ) {
-    $stmt = $this->conn->prepare('INSERT INTO users (username, password, fullname, email, wheight, birthDate, physics) VALUES (:username, :password, :fullname, :email, :wheight,:birthDate, :physics)');
+    $stmt = $this->conn->prepare('INSERT INTO users (name, password, email, wheight, birthDate, physics) VALUES (:name, :password, :email, :wheight,:birthDate, :physics)');
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);
-    $stmt->bindParam(":username", $username);
+    $stmt->bindParam(":name", $name);
     $stmt->bindParam(":fullname", $fullname);
     $stmt->bindParam(":wheight", $wheight);
     $stmt->bindParam(":birthDate", $birthDate);
@@ -44,7 +44,7 @@ class UserRepository extends Repository
 
   public function search(String $queryString)
   {
-    $stmt = $this->conn->prepare('SELECT * FROM users WHERE email LIKE :query_string or username LIKE :query_string or fullname LIKE :query_string');
+    $stmt = $this->conn->prepare('SELECT * FROM users WHERE email LIKE :query_string or name LIKE :query_string or fullname LIKE :query_string');
     $queryString = '%' . $queryString . '%';
     $stmt->bindParam(":query_string", $queryString);
     $fetchAll = $stmt->execute();

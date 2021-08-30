@@ -19,20 +19,19 @@ class UserController
 
   public function store()
   {
-    $username = $_POST["username"];
-    $fullname = $_POST["fullname"];
+    $name = $_POST["name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $wheight = $_POST["wheight"];
     $birthDate = $_POST["birthDate"];
     $physics = $_POST["physics"];
-    if (!isset($username) || !isset($fullname) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics)) {
+    if (!isset($name) || !isset($email) || !isset($password) || !isset($wheight) || !isset($birthDate) || !isset($physics)) {
       echo "deu ruim";
       require_once "app/views/signup.php";
     } else {
-      $result = $username;
+      $result = $name;
       echo $result;
-      // $result = $this->userService->createUser($username, $password, $fullname, $email, $wheight, $birthDate, $physics);
+      $result = $this->userService->createUser($name, $password, $email, $wheight, $birthDate, $physics);
       if (!is_bool($result)) {
         require_once "app/views/login.php";
       } else {
