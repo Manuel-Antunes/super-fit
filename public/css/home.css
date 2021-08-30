@@ -1,0 +1,85 @@
+.main-menu {
+    width: 100%;
+}
+
+@media (min-width: 800px) {
+    .main-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 20px;
+        height: 65vh;
+    }
+    .main-menu>div {
+        height: 100%;
+    }
+    #manage-exercices {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    #manage-clients {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+.main-menu>div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-menu>div:hover {
+    cursor: pointer;
+}
+
+#manage-exercices {
+    background-image: url("../img/manage-exercices.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#manage-clients {
+    background-image: url("../img/manage-clients.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#manage-trains {
+    background-image: url("../img/manage-trains.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#manage-evaluations {
+    background-image: url("../img/manage-evaluations.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width: 800px) {
+    .main-menu {
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .main-menu>div {
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-menu {
+        display: flex;
+        flex-direction: column;
+    }
+}

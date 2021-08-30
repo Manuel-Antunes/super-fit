@@ -11,7 +11,7 @@ if (isset($_GET["view"])) {
 
   $controller = new $controller();
   $controller->$action();
-} else if (isset($_SESSION["loggedUser"])) {
+} else if (!isset($_SESSION["loggedUser"])) {
   require_once "src/app/views/home.php";
 } else {
   require_once "src/app/views/login.php";

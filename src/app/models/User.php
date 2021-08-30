@@ -7,8 +7,9 @@ class User
   private String $username;
   private float $wheight;
   private DateTime $birthDate;
+  private String $physics;
 
-  function __construct(Int $id, String $email, String $username, String $fullname, float $wheight, DateTime $birthDate)
+  function __construct(Int $id, String $email, String $username, String $fullname, float $wheight, DateTime $birthDate, String $physics)
   {
     $this->id = $id;
     $this->email = $email;
@@ -16,6 +17,7 @@ class User
     $this->fullname = $fullname;
     $this->birthDate = $birthDate;
     $this->wheight = $wheight;
+    $this->physics = $physics;
   }
 
   /**
@@ -150,6 +152,26 @@ class User
   public function setBirthDate($birthDate)
   {
     $this->birthDate = $birthDate;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of physics
+   */
+  public function getPhysics()
+  {
+    return $this->physics;
+  }
+
+  /**
+   * Set the value of physics
+   *
+   * @return  self
+   */
+  public function setPhysics($physics)
+  {
+    $this->physics = $physics;
 
     return $this;
   }
