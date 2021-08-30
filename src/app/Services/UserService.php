@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Data\Repositories\UserRepository;
 use App\Models\User;
-use DateTime;
 use Exception;
 
 class UserService
@@ -32,11 +31,10 @@ class UserService
     String $password,
     String $email,
     float $wheight,
-    DateTime $birthDate,
+    String $birthDate,
     String $physics
   ) {
     try {
-      echo "ajsdoasd";
       $this->userRepository->store($name, password_hash($password, PASSWORD_DEFAULT), $email, $wheight, $birthDate, $physics);
     } catch (Exception $e) {
       echo '<div class="error-message">' . $e->getMessage() . '</div>';

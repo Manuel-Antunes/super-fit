@@ -1,34 +1,13 @@
 <?php
+
 namespace App\Views;
 
 use App\Components\ExerciceCreationModal;
 use App\Components\Footer;
 use App\Components\Header;
 use App\Components\Layouts\DefaultLayout;
-$exercices = array(
-  array("name" => "Prancha", "imageUrl" => ""),
-  array("name" => "Adutor", "imageUrl" => ""),
-  array("name" => "Desenvolvimento Lateral", "imageUrl" => ""),
-  array("name" => "Flexão", "imageUrl" => ""),
-  array("name" => "Rosca Direta", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-  array("name" => "Suicidio", "imageUrl" => ""),
-);
+
+$exercices = $_REQUEST['exercices'];
 ?>
 <?= DefaultLayout::start("gerenciar exercicios", "public/css/manage-exercices.css") ?>
 <?= Header::show() ?>
@@ -36,7 +15,8 @@ $exercices = array(
   <div class="main-container">
     <?php foreach ($exercices as $e) : ?>
       <a class="waves-effect waves-light btn-large">
-        <?= $e['name'] ?>
+        <?= $e->getName() ?>
+        <?= $e->getDescription() ?>
       </a>
     <?php endforeach; ?>
   </div>

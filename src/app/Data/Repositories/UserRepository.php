@@ -2,7 +2,6 @@
 
 namespace App\Data\Repositories;
 
-use DateTime;
 use PDO;
 
 class UserRepository extends Repository
@@ -19,14 +18,13 @@ class UserRepository extends Repository
     String $password,
     String $email,
     float $wheight,
-    DateTime $birthDate,
+    String $birthDate,
     String $physics
   ) {
     $stmt = $this->conn->prepare('INSERT INTO users (name, password, email, wheight, birthDate, physics) VALUES (:name, :password, :email, :wheight,:birthDate, :physics)');
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":password", $password);
     $stmt->bindParam(":name", $name);
-    $stmt->bindParam(":fullname", $fullname);
     $stmt->bindParam(":wheight", $wheight);
     $stmt->bindParam(":birthDate", $birthDate);
     $stmt->bindParam(":physics", $physics);

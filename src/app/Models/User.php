@@ -8,10 +8,10 @@ class User
   private String $email;
   private String $name;
   private float $wheight;
-  private \DateTime $birthDate;
+  private String $birthDate;
   private String $physics;
 
-  function __construct(Int $id, String $email, String $name, float $wheight, \DateTime $birthDate, String $physics)
+  function __construct(Int $id, String $email, String $name, float $wheight, String $birthDate, String $physics)
   {
     $this->id = $id;
     $this->email = $email;

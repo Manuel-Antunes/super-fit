@@ -20,7 +20,7 @@ use App\Components\Layouts\DefaultLayout;
     <a href="?view=manage-clients" class="waves-effect waves-light btn-large" id="manage-clients">
       <h5>Gerenciar Clientes</h5>
     </a>
-    <a href="?view=manage-exercices" class="waves-effect waves-light btn-large" id="manage-exercices">
+    <a href="?class=Exercice&action=index" class="waves-effect waves-light btn-large" id="manage-exercices">
       <h5>Gerenciar Exercicios</h5>
     </a>
   </div>

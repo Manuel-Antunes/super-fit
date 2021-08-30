@@ -40,13 +40,13 @@ class ExerciceCreationModal
       <div class="p-5">
         <h4>Cadastrar Exercicio</h4>
         <div class="container-fluid">
-          <form class="row g-3 mt-2">
+          <form class="row g-3 mt-2" action="?class=Exercice&action=store" method="POST">
             <div class="input-field w-100">
-              <label for="inputName" class="form-label">Nome</label>
-              <input type="text" name="name" class="form-control" id="inputName">
+              <label for="name" class="form-label">Nome</label>
+              <input type="text" name="name" class="form-control" id="name">
             </div>
             <div class="input-field w-100">
-              <textarea id="description" name="desciption" class="materialize-textarea"></textarea>
+              <textarea id="description" name="description" class="materialize-textarea"></textarea>
               <label for="description">Textarea</label>
             </div>
             <div id="exercice-media">

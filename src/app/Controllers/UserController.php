@@ -29,7 +29,9 @@ class UserController
       echo "deu ruim";
       require_once "src/app/views/signup.php";
     } else {
-      $result = $this->userService->createUser($name, $password, $email, $wheight, $birthDate, $physics);
+      // $result = $birthDate;
+      // echo $result;
+      $result = $this->userService->createUser($name, $password, $email, $wheight,  $birthDate, $physics);
       if (!is_bool($result)) {
         require_once "src/app/Views/login.php";
       } else {
