@@ -38,30 +38,30 @@ use App\Components\Layouts\DefaultLayout;
           <label for="inputZip">Gênero</label>
           <p>
             <input class="with-gap" required name="gender" type="radio" id="m" />
-            <label for="m">Masculino</label>
+            <label value="Masculino" for="m">Masculino</label>
           </p>
           <p>
             <input class="with-gap" required name="gender" type="radio" id="f" />
-            <label for="f">Feminino</label>
+            <label value="Feminino" for="f">Feminino</label>
           </p>
           <p>
             <input class="with-gap" required name="gender" type="radio" id="other" />
-            <label for="other">Outro</label>
+            <label value="" for="other">Outro</label>
           </p>
         </div>
         <div class="col-12">
           <label for="inputZip">Tipo físico</label>
           <p>
             <input class="with-gap" required name="physics" type="radio" id="ectomorph" />
-            <label for="ectomorph">Endomorfo</label>
+            <label value="Endomorfo" for="ectomorph">Endomorfo</label>
           </p>
           <p>
             <input class="with-gap" required name="physics" type="radio" id="mesomorph" />
-            <label for="mesomorph">Mesomorfo</label>
+            <label value="Mesomorfo" for="mesomorph">Mesomorfo</label>
           </p>
           <p>
             <input class="with-gap" required name="physics" type="radio" id="endomorph" />
-            <label for="endomorph">Ectomorfo</label>
+            <label value="Ectomorfo" for="endomorph">Ectomorfo</label>
           </p>
         </div>
         <div class="input-field col w-50">

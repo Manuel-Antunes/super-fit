@@ -50,7 +50,7 @@ class User
    *
    * @return  String
    */
-  public function getname()
+  public function getName()
   {
     return $this->name;
   }
@@ -62,7 +62,7 @@ class User
    *
    * @return  self
    */
-  public function setname(String $name)
+  public function setName(String $name)
   {
     $this->name = $name;
 

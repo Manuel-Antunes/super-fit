@@ -6,9 +6,9 @@ class Header
 {
   public static function show()
   {
-    $username = "Teste";
-    $email = "teste@teste.com";
-    $photo = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+    $username = $_SESSION["loggedUser"]["name"];
+    $email = $_SESSION["loggedUser"]["email"];
+    $photo = isset($_SESSION["loggedUser"]["photo"]) ? $_SESSION["loggedUser"]["photo"] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
 ?>
     <style>
       #profile:hover {
@@ -22,7 +22,7 @@ class Header
         </div>
       </a>
       <div id="profile" data-activates="slide-out" class="w-25 justify-content-end d-flex align-items-center">
-        <span class="m-3 fw-bold text-white">
+        <span class="m-1 fw-bold text-white">
           <?= $username ?>
         </span>
         <img style="min-width: 40px;" src="<?= $photo ?>" alt="" class="circle w-25"> <!-- notice the "circle" class -->
@@ -43,7 +43,7 @@ class Header
       <li>
         <div class="divider"></div>
       </li>
-      <li><a class="waves-effect" href="#!"><i class="material-icons">logout</i>Logout</a></li>
+      <li><a class="waves-effect" href="?class=Auth&action=destroy"><i class="material-icons">logout</i>Logout</a></li>
     </ul>
     <script src="public/js/header.js"></script>
 <?php

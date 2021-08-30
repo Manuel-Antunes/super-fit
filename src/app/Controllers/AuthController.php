@@ -1,7 +1,8 @@
 <?php
 
+use App\Data\Connection;
+use App\Data\Repositories\UserRepository;
 use App\Services\UserService as ServicesUserService;
-use App\Repositories\UserRepository;
 use App\Services\UserService;
 
 class AuthController
@@ -22,14 +23,14 @@ class AuthController
     $email = $_POST["email"];
     $password = $_POST["password"];
     if (!isset($email) || !isset($password)) {
-      require_once "app/views/signup/index.php";
+      require_once "src/app/Views/signup.php";
     } else {
       $result = $this->userService->logIn($email, $password);
       if (!is_bool($result)) {
-        $_SESSION["loggedUser"] = array("id" => $result->getId(), "username" => $result->getUsername(), "email" => $result->getEmail());
-        require_once "app/views/home/index.php";
+        $_SESSION["loggedUser"] = array("id" => $result->getId(), "name" => $result->getName(), "email" => $result->getEmail());
+        require_once "src/app/Views/home.php";
       } else {
-        require_once "app/views/login/index.php";
+        require_once "src/app/Views/login.php";
       }
     }
   }

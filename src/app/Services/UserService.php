@@ -63,7 +63,7 @@ class UserService
       if (!password_verify($password, $fetch['password'])) {
         throw new Exception("Invalid password");
       }
-      $user = new User($fetch['id'], $fetch['email'], $fetch['name'], $fetch['fullname'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics']);
+      $user = new User($fetch['id'], $fetch['email'], $fetch['name'], $fetch['wheight'], $fetch['birthDate'], $fetch['physics']);
       return $user;
     } catch (Exception $e) {
       echo `<div class="error-message">` . $e->getMessage() . `</div>`;
