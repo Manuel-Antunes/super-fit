@@ -1,5 +1,6 @@
 <?php
 require_once "src/core/autoload.php";
+require_once "src/core/config.php";
 session_start();
 if (isset($_GET["view"])) {
   require_once "src/app/Views/" . $_GET["view"] . ".php";

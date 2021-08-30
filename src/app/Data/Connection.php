@@ -1,12 +1,16 @@
 <?php
+
 namespace App\Data;
+
 class Connection
 {
   public static function getConnection()
   {
-    $database = "atividade";
-    $username = "root";
-    $senha = "";
-    return new \PDO("mysql:host=127.0.0.1;dbname=$database", $username, $senha);
+    $database = DATA_LAYER_CONFIG['dbname'];
+    $username = DATA_LAYER_CONFIG['username'];
+    $senha = DATA_LAYER_CONFIG['password'];
+    $driver = DATA_LAYER_CONFIG['driver'];
+    $host = DATA_LAYER_CONFIG['host'];
+    return new \PDO("$driver:host=$host;dbname=$database", $username, $senha);
   }
 }
