@@ -1,4 +1,4 @@
-document.body.onload = function () {
+document.body.addEventListener("load", function () {
   $("#profile").sideNav({
     menuWidth: 300,
     edge: 'right',
@@ -7,4 +7,4 @@ document.body.onload = function () {
     onOpen: function (el) { },
     onClose: function (el) { },
   });
-}
+})

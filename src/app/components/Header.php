@@ -13,9 +13,11 @@ class Header
       }
     </style>
     <div class="purple darken-4 w-100 align-items-center d-flex justify-content-between p-3 z-depth-4">
-      <div class="logo-wrapper  w-50">
-        <img style="min-width: 150px;" class="responsive-img w-50" src="public/img/logo.svg" alt="super fit logo">
-      </div>
+      <a href="./" class="w-50">
+        <div class="logo-wrapper  container-fluid">
+          <img style="min-width: 150px;" class="responsive-img w-50" src="public/img/logo.svg" alt="super fit logo">
+        </div>
+      </a>
       <div id="profile" data-activates="slide-out" class="w-25 justify-content-end d-flex align-items-center">
         <span class="m-3 fw-bold text-white">
           <?= $username ?>
