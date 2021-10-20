@@ -7,4 +7,4 @@ CREATE TABLE users(
     wheight FLOAT NOT NULL,
     gender VARCHAR(255) NOT NULL,
     physics VARCHAR(255) NOT NULL
-)
+);

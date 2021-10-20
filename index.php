@@ -1,6 +1,7 @@
 <?php
 require_once "src/core/autoload.php";
 require_once "src/core/config.php";
+require_once "src/app/Controllers/HomeController.php";
 session_start();
 if (isset($_GET["view"])) {
   require_once "src/app/Views/" . $_GET["view"] . ".php";
@@ -12,8 +13,7 @@ if (isset($_GET["view"])) {
 
   $controller = new $controller();
   $controller->$action();
-} else if (isset($_SESSION["loggedUser"])) {
-  require_once "src/app/Views/home.php";
 } else {
-  require_once "src/app/Views/login.php";
+  $hc = new HomeController();
+  $hc->index();
 }

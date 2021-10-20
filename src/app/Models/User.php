@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class User
+class User extends Model
 {
   private Int $id;
   private String $email;
@@ -12,8 +12,15 @@ class User
   private String $physics;
   private String $gender;
 
-  function __construct(Int $id, String $email, String $name, float $wheight, String $birthDate, String $physics, String $gender)
-  {
+  function __construct(
+    Int $id,
+    String $email,
+    String $name,
+    float $wheight,
+    String $birthDate,
+    String $physics,
+    String $gender
+  ) {
     $this->id = $id;
     $this->email = $email;
     $this->name = $name;
@@ -151,6 +158,31 @@ class User
   public function setPhysics($physics)
   {
     $this->physics = $physics;
+
+    return $this;
+  }
+
+  public function toArray()
+  {
+    return array('id' => $this->id, 'name' => $this->name, 'physics' => $this->physics, 'birthDate' => $this->birthDate, 'wheight' => $this->wheight, 'email' => $this->email, 'gender' => $this->gender);
+  }
+
+  /**
+   * Get the value of gender
+   */
+  public function getGender()
+  {
+    return $this->gender;
+  }
+
+  /**
+   * Set the value of gender
+   *
+   * @return  self
+   */
+  public function setGender($gender)
+  {
+    $this->gender = $gender;
 
     return $this;
   }

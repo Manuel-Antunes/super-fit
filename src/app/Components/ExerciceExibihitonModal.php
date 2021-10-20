@@ -4,7 +4,7 @@ namespace App\Components;
 
 class ExerciceCreationModal
 {
-  public static function show()
+  public static function show($exercice)
   {
 ?>
     <style>
@@ -61,30 +61,17 @@ class ExerciceCreationModal
     </style>
     <div id="exercice-creation-modal" class="modal">
       <div class="p-5">
-        <h4>Cadastrar Exercicio</h4>
+        <h4><?= $exercice["name"] ?></h4>
+        <div class="divider"></div>
+        <p class="description">
+          <?= $exercice["description"] ?>
+        </p>
         <div class="container-fluid">
-          <form class="row g-3 mt-2" action="?class=Exercice&action=store" method="POST">
-            <div class="input-field w-100">
-              <label for="name" class="form-label">Nome</label>
-              <input required type="text" name="name" class="form-control" id="name">
-            </div>
-            <div class="input-field w-100">
-              <textarea required id="description" name="description" class="materialize-textarea"></textarea>
-              <label for="description">Description</label>
-            </div>
-            <div id="exercice-media">
-              <div class="file-input">
-                <input type="file" id="files" onchange="addImageToList(this)" name="files" multiple>
-                <i class="material-icons">add</i>
-                <p>inserir mídia</p>
-              </div>
-            </div>
-            <div class="d-flex justify-content-between">
-              <a href="#" class="align-self-flex-end waves-effect waves-light btn grey lighten-2"><i class="material-icons left">chevron_left</i>
-                Voltar</a>
-              <button type="submit" class="align-self-flex-end waves-effect waves-light btn purple darken-4">Cadastrar</button>
-            </div>
-          </form>
+          <div class="exercice-media-grid">
+            <?php foreach ($exercice["media"] as $media) : ?>
+              <img src="<?= $media["src"] ?>" alt="<?= $media["name"] ?>">
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
     </div>
