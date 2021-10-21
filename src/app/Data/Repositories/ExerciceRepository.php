@@ -14,7 +14,7 @@ class ExerciceRepository extends Repository
 
   public function index()
   {
-    $query = $this->conn->query('SELECT * FROM exercises INNER JOIN exercises_media AS em ON exercises.id = em.exercice_id INNER JOIN media ON em.media_id = media.id');
+    $query = $this->conn->query('SELECT * FROM exercises');
     $fetchAll = $query->fetchAll(\PDO::FETCH_ASSOC);
     return $fetchAll;
   }

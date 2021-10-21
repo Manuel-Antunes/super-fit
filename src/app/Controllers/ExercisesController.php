@@ -4,7 +4,7 @@ use App\Data\Connection;
 use App\Data\Repositories\ExerciceRepository;
 use App\Services\ExerciceService;
 
-class ExerciceController
+class ExercisesController
 {
   private ExerciceService $exerciceService;
 
