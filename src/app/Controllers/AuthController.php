@@ -28,16 +28,26 @@ class AuthController
       $result = $this->userService->logIn($email, $password);
       if (!is_bool($result)) {
         $_SESSION["loggedUser"] = array("id" => $result->getId(), "name" => $result->getName(), "email" => $result->getEmail());
-        require_once "src/app/Views/home.php";
+        header('Location: ./');
       } else {
         require_once "src/app/Views/login.php";
       }
     }
   }
 
+  public function create()
+  {
+    require_once "src/app/Views/signup.php";
+  }
+
   public function destroy()
   {
     session_destroy();
-    header("Location: ?view=login");
+    require_once "src/app/Views/login.php";
+  }
+
+  public function edit()
+  {
+    require_once "src/app/Views/login.php";
   }
 }
