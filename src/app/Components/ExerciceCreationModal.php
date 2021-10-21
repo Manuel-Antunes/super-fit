@@ -63,7 +63,7 @@ class ExerciceCreationModal
       <div class="p-5">
         <h4>Cadastrar Exercicio</h4>
         <div class="container-fluid">
-          <form class="row g-3 mt-2" action="?class=Exercice&action=store" method="POST">
+          <form class="row g-3 mt-2" action="./exercises" method="POST">
             <div class="input-field w-100">
               <label for="name" class="form-label">Nome</label>
               <input required type="text" name="name" class="form-control" id="name">

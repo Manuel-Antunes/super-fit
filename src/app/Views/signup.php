@@ -13,7 +13,7 @@ use App\Components\Layouts\DefaultLayout;
     </div>
     <div class="col w-100 p-5 align-self-center">
       <h1 class="display-3">Cadastro</h1>
-      <form class="row g-3" method="POST" action="?class=User&action=store">
+      <form class="row g-3" method="POST" action="./users">
         <div class="input-field w-100">
           <label for="email">Email</label>
           <input type="email" required name="email" class="validate" id="email">
@@ -72,7 +72,7 @@ use App\Components\Layouts\DefaultLayout;
           <label for="wheight">Peso</label>
           <input type="number" required step="0.01" name="wheight" id="wheight">
         </div>
-        <p class="lead">Já faz parte da nossa família ? <a href="?view=login">faça o login</a>, e vamos
+        <p class="lead">Já faz parte da nossa família ? <a href="./login">faça o login</a>, e vamos
           voltar ao trabalho!</p>
         <div class="col-12">
           <button type="submit" class="waves-effect waves-light btn-large w-100 purple darken-4">Cadastrar-se</button>

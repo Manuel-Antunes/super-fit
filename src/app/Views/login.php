@@ -13,7 +13,7 @@ use App\Components\Layouts\DefaultLayout;
     </div>
     <div class="col xl container p-5">
       <h1 class="display-3">Login</h1>
-      <form class="row g-3" action="?class=Auth&action=store" method="POST">
+      <form class="row g-3" action="./auth" method="POST">
         <div class="input-field w-100">
           <label for="inputEmail4" class="form-label">Email</label>
           <input type="email" name="email" class="form-control" id="inputEmail4">
@@ -23,7 +23,7 @@ use App\Components\Layouts\DefaultLayout;
           <input type="password" name="password" class="form-control" id="inputPassword4">
         </div>
         <p class="lead">Se ainda não faz parte dessa familia poderosa,
-          <a href="?view=signup">cadastre-se agora</a>, e mude sua vida!
+          <a href="./signup">cadastre-se agora</a>, e mude sua vida!
         </p>
         <div>
           <button type="submit" class="w-100 waves-effect waves-light btn-large purple darken-4">Entrar</button>

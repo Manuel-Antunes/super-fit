@@ -43,7 +43,7 @@ class Header
       <li>
         <div class="divider"></div>
       </li>
-      <li><a class="waves-effect" href="?class=Auth&action=destroy"><i class="material-icons">logout</i>Logout</a></li>
+      <li><a class="waves-effect" href="./signout"><i class="material-icons">logout</i>Logout</a></li>
     </ul>
     <script src="public/js/header.js"></script>
 <?php
