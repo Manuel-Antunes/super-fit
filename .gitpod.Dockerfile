@@ -67,4 +67,5 @@ ENV C9_HOSTNAME="localhost"
 
 # Run migrations
 COPY src/app/Data/migrations .
+RUN mysql -u root mysql -u root -e "CREATE DATABASE $DB_NAME"
 RUN for %f in (*.sql) do mysql -u root mysql -u root atividade -e %f
