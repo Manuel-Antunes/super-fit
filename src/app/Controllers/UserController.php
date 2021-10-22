@@ -17,6 +17,11 @@ class UserController
     }
   }
 
+  public function index()
+  {
+    require_once "src/app/Views/manage-clients.php";
+  }
+
   public function store()
   {
     $name = $_POST["name"];
