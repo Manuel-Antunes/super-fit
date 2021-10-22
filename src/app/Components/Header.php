@@ -15,7 +15,7 @@ class Header
         cursor: pointer;
       }
     </style>
-    <div class="purple darken-4 w-100 align-items-center d-flex justify-content-between p-3 z-depth-4">
+    <div class="purple darken-4 w-100 align-items-center d-flex justify-content-between p-1 z-depth-4">
       <a href="./" class="w-50">
         <div class="logo-wrapper  container-fluid">
           <img style="min-width: 150px;" class="responsive-img w-50" src="public/img/logo.svg" alt="super fit logo">
