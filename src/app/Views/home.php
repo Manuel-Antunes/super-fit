@@ -11,16 +11,16 @@ use App\Components\Layouts\DefaultLayout;
 <?= Header::show() ?>
 <div class="main-container px-5 pt-5 d-flex flex-column">
   <div class="main-menu">
-    <a href="./managetrains" class="waves-effect waves-light btn-large" id="manage-trains">
+    <a href="./manage-trains" class="waves-effect waves-light btn-large" id="manage-trains">
       <h5>Gerenciar Treinos</h5>
     </a>
-    <a href="./manageevaluations" class="waves-effect waves-light btn-large" id="manage-evaluations">
+    <a href="./manage-evaluations" class="waves-effect waves-light btn-large" id="manage-evaluations">
       <h5>Gerenciar Avaliações</h5>
     </a>
-    <a href="./manageclients" class="waves-effect waves-light btn-large" id="manage-clients">
+    <a href="./manage-clients" class="waves-effect waves-light btn-large" id="manage-clients">
       <h5>Gerenciar Clientes</h5>
     </a>
-    <a href="./manageexercices" class="waves-effect waves-light btn-large" id="manage-exercices">
+    <a href="./manage-exercises" class="waves-effect waves-light btn-large" id="manage-exercices">
       <h5>Gerenciar Exercicios</h5>
     </a>
   </div>
