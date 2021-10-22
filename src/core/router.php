@@ -1,11 +1,14 @@
 <?php
 class Router
 {
+
+  private array $registredRoutes = array();
+
   private function match_patterns($path, $url, &$VARS)
   {
-    preg_match_all("/(?:\/((?:[:])?\w+))/", $path, $path_groups);
+    preg_match_all("/(?:\/((?:[:])?[\w-]+))/", $path, $path_groups);
     $path_groups = $path_groups[1];
-    preg_match_all("/(?:\/((?:[:])?\w+))/", $url, $url_groups);
+    preg_match_all("/(?:\/((?:[:])?[\w-]+))/", $url, $url_groups);
     $url_groups = $url_groups[1];
     for ($i = 0; $i < sizeof($url_groups); $i++) {
       if (isset($path_groups[$i])) {
@@ -56,18 +59,26 @@ class Router
   public function get(string $path, $handler, ...$middlewares)
   {
     $url = isset($_GET['url']) ? '/' . $_GET['url'] : '/';
+    if (in_array('GET' . $url, $this->registredRoutes, TRUE)) {
+      return;
+    }
     $match = $this->match_patterns($path, $url, $_REQUEST);
     if ($match && $_SERVER['REQUEST_METHOD'] === 'GET') {
       $this->call_handler($handler, $middlewares);
+      array_push($this->registredRoutes, 'GET' . $url);
     }
   }
 
   public function post(string $path, $handler, ...$middlewares)
   {
     $url = isset($_GET['url']) ? '/' . $_GET['url'] : '/';
+    if (in_array('POST' . $url, $this->registredRoutes, TRUE)) {
+      return;
+    }
     $match = $this->match_patterns($path, $url, $_REQUEST);
     if ($match && $_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->call_handler($handler, $middlewares);
+      array_push($this->registredRoutes, 'POST' . $url);
     }
   }
 }
