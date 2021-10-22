@@ -7,7 +7,6 @@ document.body.addEventListener('load', function() {
         startingTop: '4%', // Starting top style attribute
         endingTop: '10%', // Ending top style attribute
         ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-            console.log(modal, trigger);
         },
         complete: function() {} // Callback for Modal close
     });
@@ -15,13 +14,18 @@ document.body.addEventListener('load', function() {
 
 function addImageToList(image) {
     const media = document.querySelector('#exercice-media')
-    if (image.files && image.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            const div = createDivWithImage(e.target.result)
-            media.append(div);
+    if (image.files) {
+        const ele = media.getElementsByClassName('file-input')[0].cloneNode(true);
+        media.innerHTML = "";
+        media.appendChild(ele);
+        for (let i = 0; i < image.files.length; i++) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                const div = createDivWithImage(e.target.result)
+                media.append(div);
+            }
+            reader.readAsDataURL(image.files[i]); // convert to base64 string
         }
-        reader.readAsDataURL(image.files[0]); // convert to base64 string
     }
 }
 
@@ -31,3 +35,29 @@ function createDivWithImage(image) {
     div.classList.add('exercice-adding-image');
     return div
 }
+const form = document.getElementById('form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form_data = new FormData();
+    // Read selected files
+    const files = document.getElementById('files');
+    var totalfiles = files.files.length;
+    for (var index = 0; index < totalfiles; index++) {
+        form_data.append("files[]", files.files[index]);
+    }
+    // AJAX request
+    $.ajax({
+        url: './media',
+        type: 'post',
+        data: form_data,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        success: function() {
+            form.submit();
+        },
+        error: function(response) {
+            alert('Error while uploading files');
+        }
+    });
+});

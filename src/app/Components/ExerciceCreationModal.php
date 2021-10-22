@@ -11,7 +11,7 @@ class ExerciceCreationModal
       .file-input {
         width: 100px;
         height: 100px;
-        border-radius: 10px;
+        border-radius: 5px;
         background-color: #7159c1;
         display: flex;
         flex-direction: column;
@@ -24,7 +24,7 @@ class ExerciceCreationModal
       .exercice-adding-image {
         width: 100px;
         height: 100px;
-        border-radius: 10px;
+        border-radius: 5px;
         text-align: center;
         background-repeat: no-repeat;
         background-position: center;
@@ -48,7 +48,7 @@ class ExerciceCreationModal
         display: flex;
         flex-wrap: wrap;
         flex-direction: row-reverse;
-        border-radius: 10px;
+        border-radius: 5px;
       }
 
       #exercice-media div {
@@ -63,7 +63,7 @@ class ExerciceCreationModal
       <div class="p-5">
         <h4>Cadastrar Exercicio</h4>
         <div class="container-fluid">
-          <form class="row g-3 mt-2" action="./exercises" method="POST">
+          <form id="form" class="row g-3 mt-2" action="./exercises" method="POST">
             <div class="input-field w-100">
               <label for="name" class="form-label">Nome</label>
               <input required type="text" name="name" class="form-control" id="name">
@@ -73,8 +73,8 @@ class ExerciceCreationModal
               <label for="description">Description</label>
             </div>
             <div id="exercice-media">
-              <div class="file-input">
-                <input type="file" id="files" onchange="addImageToList(this)" name="files" multiple>
+              <div class="file-input waves-effect waves-light">
+                <input type="file" id="files" onchange="addImageToList(this)" name="files[]" multiple>
                 <i class="material-icons">add</i>
                 <p>inserir mídia</p>
               </div>
