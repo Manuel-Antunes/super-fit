@@ -15,13 +15,13 @@ $router->post('/users', 'UserController.store');
 $router->get('/signup', 'AuthController.create');
 $router->get('/signout', 'AuthController.destroy');
 $router->get('/login', 'AuthController.edit');
-$router->get('/manage-evaluations', 'AuthController.edit');
 $router->get('/login', 'AuthController.edit');
-$router->get('/managetrains', 'AuthController.edit');
-$router->get('/manageevaluations', 'AuthController.edit');
-$router->get('/manageclients', 'AuthController.edit');
-$router->get('/manageexercices', 'ExercisesController.index');
+$router->get('/manage-evaluations', 'EvaluationsController.index');
+$router->get('/manage-clients', 'UserController.index');
+$router->get('/manage-exercises', 'ExercisesController.index');
 $router->post('/exercises', 'ExercisesController.store');
+$router->get('/manage-trains', 'TrainsController.index', 'auth');
+$router->post('/media', 'MediaController.store');
 // if (isset($_GET["view"])) {
 //   require_once "src/app/Views/" . $_GET["view"] . ".php";
 // } else if (isset($_GET["action"]) && isset($_GET["class"])) {
