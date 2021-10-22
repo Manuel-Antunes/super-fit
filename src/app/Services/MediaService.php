@@ -33,17 +33,12 @@ class MediaService
     String $type,
     String $subtype
   ) {
-    try {
-      $this->mediaRepository->store(
-        $name,
-        $file,
-        $type,
-        $subtype
-      );
-    } catch (Exception $e) {
-      echo '<div class="error-message">' . $e->getMessage() . '</div>';
-      return false;
-    }
+    $this->mediaRepository->store(
+      $name,
+      $file,
+      $type,
+      $subtype
+    );
   }
 
   private function mapToMedia($array)
