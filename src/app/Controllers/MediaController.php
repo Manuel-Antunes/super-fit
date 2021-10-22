@@ -1,17 +1,20 @@
 <?php
 
 use App\Data\Connection;
-use App\Data\Repositories\UserRepository;
-use App\Services\UserService;
+use App\Data\Repositories\MediaRepository;
+use App\Services\MediaService;
+use App\Services\FileService;
 
-class UserController
+class MediaController
 {
-  private UserService $userService;
+  private MediaService $mediaService;
+  private FileService $fileService;
 
   function __construct()
   {
     try {
-      $this->userService = new UserService(new UserRepository(Connection::getConnection()));
+      $this->mediaService = new MediaService(new MediaRepository(Connection::getConnection()));
+      $this->fileService = new FileService();
     } catch (Exception $e) {
       var_dump($e->getMessage());
     }
@@ -19,19 +22,17 @@ class UserController
 
   public function store()
   {
-    $name = $_POST["name"];
-    $file = $_POST["file"];
-    $type = $_POST["type"];
-    $subtype = $_POST["subtype"];
-    if (!isset($name) || !isset($file) || !isset($type) || !isset($subtype)) {
-      require_once "src/app/views/signup.php";
-    } else {
-      $result = $this->userService->createUser($name, $password, $email, $wheight,  $birthDate, $physics, $gender);
-      if (!is_bool($result)) {
-        require_once "src/app/Views/login.php";
-      } else {
-        require_once "src/app/Views/signup.php";
+    $files = $this->fileService->map_request($_FILES);
+    $uploaded = array();
+    foreach ($files as $file) {
+      $uploaded_file = $this->fileService->create_file($file);
+      try {
+        $this->mediaService->createMedia($uploaded_file['filename'], $uploaded_file['path'], $uploaded_file['ext'], $uploaded_file['ext']);
+      } catch (Exception $e) {
+        die('Error while saving the file in database');
       }
+      $uploaded[] = $uploaded_file;
     }
+    echo json_encode($uploaded);
   }
 }
